@@ -1,0 +1,56 @@
+body {
+
+background-color: #000000;
+
+#back {
+
+background-color: #363636;
+width: 400px;
+height: 1000px;
+margin-left: 470px;
+}
+
+}
+
+#timer {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5%;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+#text {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5%;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+#text1 {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 15%;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+#amor {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 5%;
+    font-family: Arial, sans-serif;
+    color: Red;
+}
+
+#img {
+width: 350px;
+height: 350px;
+margin-left: 12px;
+margin-top: 30px;
+
+
+
+
+}
