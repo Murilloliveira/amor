@@ -3,20 +3,43 @@ const startDateTime = new Date('2024-07-23T00:00:00');
 
 function updateTimer() {
     const currentTime = new Date();
-    const elapsed = currentTime - startDateTime;
-
-    // Função para calcular a diferença em anos, meses, dias, horas, minutos e segundos
+    
     function calculateTimeDifference(start, end) {
-        const years = end.getFullYear() - start.getFullYear();
-        const months = end.getMonth() - start.getMonth() + years * 12;
-        const days = Math.floor((end - new Date(end.getFullYear(), end.getMonth(), 0)) / (1000 * 60 * 60 * 24));
-        const hours = end.getHours() - start.getHours();
-        const minutes = end.getMinutes() - start.getMinutes();
-        const seconds = end.getSeconds() - start.getSeconds();
+        let years = end.getFullYear() - start.getFullYear();
+        let months = end.getMonth() - start.getMonth();
+        let days = end.getDate() - start.getDate();
+        let hours = end.getHours() - start.getHours();
+        let minutes = end.getMinutes() - start.getMinutes();
+        let seconds = end.getSeconds() - start.getSeconds();
+        
+        // Ajusta os segundos, minutos e horas
+        if (seconds < 0) {
+            minutes--;
+            seconds += 60;
+        }
+        if (minutes < 0) {
+            hours--;
+            minutes += 60;
+        }
+        if (hours < 0) {
+            days--;
+            hours += 24;
+        }
+
+        // Ajusta os dias e meses
+        if (days < 0) {
+            const lastMonthDate = new Date(end.getFullYear(), end.getMonth(), 0);
+            days += lastMonthDate.getDate(); // Obtém o número de dias do mês anterior
+            months--;
+        }
+        if (months < 0) {
+            years--;
+            months += 12;
+        }
 
         return {
             years,
-            months: months % 12,
+            months,
             days,
             hours,
             minutes,
